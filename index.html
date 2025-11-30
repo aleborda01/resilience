@@ -629,16 +629,16 @@
     .partners-row {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 48px;
-      margin-bottom: 40px;
+      justify-content: flex-start;
+      gap: 40px;
+      margin-top: 72px;
       flex-wrap: wrap;
     }
 
     .partner-logo {
       height: 24px;
       width: auto;
-      opacity: 0.6;
+      opacity: 0.5;
       transition: opacity 0.2s ease;
       filter: grayscale(100%);
     }
@@ -648,42 +648,35 @@
     }
 
     .partner-logo:hover {
-      opacity: 1;
+      opacity: 0.8;
     }
 
     /* Individual logo size adjustments for visual balance */
     .logo-openai {
-      height: 26px;
-    }
-
-    .logo-anthropic {
-      height: 18px;
-    }
-
-    .logo-deepmind {
-      height: 24px;
-    }
-
-    .logo-fiftyyears {
       height: 28px;
     }
 
-    .engine-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 32px;
-      margin-bottom: 20px;
+    .logo-anthropic {
+      height: 14px;
     }
 
-    .engine-card:last-child {
-      margin-bottom: 0;
+    .logo-deepmind {
+      height: 26px;
     }
 
-    .engine-card p {
-      font-size: 15px;
+    .logo-fiftyyears {
+      height: 32px;
+    }
+
+    .engine-section {
+      margin-bottom: 32px;
+    }
+
+    .engine-text {
+      font-size: 16px;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.7;
+      max-width: 720px;
     }
 
     .engine-label {
@@ -695,39 +688,19 @@
       margin-bottom: 12px;
     }
 
-    .mini-stats-header {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-tertiary);
-      margin-bottom: 12px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .mini-stats {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      padding-top: 20px;
+    .mini-stats-inline {
       margin-top: 16px;
-      border-top: 1px solid var(--border-color);
+      font-size: 15px;
+      color: var(--text-secondary);
     }
 
-    .mini-stat {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-    }
-
-    .mini-number {
-      font-size: 24px;
+    .mini-stats-inline strong {
       font-weight: 600;
       color: var(--text-primary);
-      letter-spacing: -0.02em;
     }
 
-    .mini-label {
-      font-size: 14px;
+    .stat-divider {
+      margin: 0 12px;
       color: var(--text-tertiary);
     }
 
@@ -1012,28 +985,27 @@
         gap: 20px;
       }
 
+      .engine-section {
+        margin-bottom: 28px;
+      }
+
       .engine-card {
         padding: 24px;
       }
 
       .partners-row {
         gap: 32px;
-        margin-bottom: 32px;
+        margin-top: 32px;
       }
 
-      .mini-stats {
+      .mini-stats-inline {
+        display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 8px;
       }
 
-      .mini-stat {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
-      }
-
-      .mini-number {
-        font-size: 28px;
+      .stat-divider {
+        display: none;
       }
 
       .cta-section {
@@ -1470,38 +1442,31 @@
     <div class="container">
       <h2 class="section-title">Built on a proven engine</h2>
       
-      <!-- Unified Partner Logos -->
+      <!-- Frontier expertise -->
+      <div class="engine-section">
+        <div class="engine-label">Frontier expertise</div>
+        <p class="engine-text">Nowhere else do you get this level of proximity to what's happening at the frontier safety teams. Get mentorship directly from researchers and leaders shaping the future of AI.</p>
+      </div>
+
+      <!-- Company building -->
+      <div class="engine-section">
+        <div class="engine-label">Company building playbook</div>
+        <p class="engine-text">We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise over $4.6 billion. Our founder training program has produced:</p>
+        <div class="mini-stats-inline">
+          <span><strong>340</strong> scientists and engineers trained</span>
+          <span class="stat-divider">·</span>
+          <span><strong>78</strong> companies started</span>
+          <span class="stat-divider">·</span>
+          <span><strong>95%</strong> seed raise success rate</span>
+        </div>
+      </div>
+
+      <!-- Partner Logos -->
       <div class="partners-row">
         <img src="openai-logo.png" alt="OpenAI" class="partner-logo logo-openai">
         <img src="anthropic-logo.png" alt="Anthropic" class="partner-logo logo-anthropic">
         <img src="deepmind-logo.png" alt="DeepMind" class="partner-logo logo-deepmind">
         <img src="fiftyyears-logo.png" alt="Fifty Years" class="partner-logo logo-fiftyyears">
-      </div>
-
-      <!-- Frontier expertise -->
-      <div class="engine-card">
-        <div class="engine-label">Frontier expertise</div>
-        <p>Nowhere else do you get this level of proximity to what's happening at the frontier safety teams. Get mentorship directly from researchers and leaders shaping the future of AI.</p>
-      </div>
-
-      <!-- Company building -->
-      <div class="engine-card">
-        <div class="engine-label">Company building playbook</div>
-        <p>We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise over $4.6 billion. Our founder training program has produced:</p>
-        <div class="mini-stats">
-          <div class="mini-stat">
-            <span class="mini-number">340</span>
-            <span class="mini-label">scientists and engineers trained</span>
-          </div>
-          <div class="mini-stat">
-            <span class="mini-number">78</span>
-            <span class="mini-label">companies started</span>
-          </div>
-          <div class="mini-stat">
-            <span class="mini-number">95%</span>
-            <span class="mini-label">seed raise success rate</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
