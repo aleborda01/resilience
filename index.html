@@ -20,6 +20,24 @@
       --gray-900: #171717;
       --accent: #10a37f;
       --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      
+      --bg-primary: var(--white);
+      --bg-secondary: var(--gray-50);
+      --bg-card: var(--white);
+      --text-primary: var(--black);
+      --text-secondary: var(--gray-600);
+      --text-tertiary: var(--gray-500);
+      --border-color: var(--gray-200);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #141414;
+      --bg-card: #1a1a1a;
+      --text-primary: #fafafa;
+      --text-secondary: #a3a3a3;
+      --text-tertiary: #737373;
+      --border-color: #2a2a2a;
     }
 
     * {
@@ -35,11 +53,12 @@
 
     body {
       font-family: var(--font-sans);
-      background: var(--white);
-      color: var(--black);
+      background: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -62,8 +81,13 @@
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--border-color);
       z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    [data-theme="dark"] nav {
+      background: rgba(10, 10, 10, 0.8);
     }
 
     .nav-logo {
@@ -71,7 +95,43 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      color: var(--black);
+      color: var(--text-primary);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--text-tertiary);
+      color: var(--text-primary);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .theme-toggle .sun-icon {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .moon-icon {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .sun-icon {
+      display: block;
     }
 
     .nav-logo span {
@@ -88,13 +148,13 @@
 
     .nav-links a {
       font-size: 14px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.15s ease;
     }
 
     .nav-links a:hover {
-      color: var(--black);
+      color: var(--text-primary);
     }
 
     .nav-cta {
@@ -109,8 +169,17 @@
       transition: background 0.15s ease;
     }
 
+    [data-theme="dark"] .nav-cta {
+      background: var(--white);
+      color: var(--black) !important;
+    }
+
     .nav-cta:hover {
       background: var(--gray-800);
+    }
+
+    [data-theme="dark"] .nav-cta:hover {
+      background: var(--gray-200);
     }
 
     /* Hero with gradient */
@@ -177,7 +246,7 @@
 
     .hero-description {
       font-size: 20px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       max-width: 680px;
       margin-bottom: 32px;
       line-height: 1.6;
@@ -199,9 +268,18 @@
       width: fit-content;
     }
 
+    [data-theme="dark"] .hero-cta {
+      background: var(--white);
+      color: var(--black);
+    }
+
     .hero-cta:hover {
       background: var(--gray-800);
       transform: translateY(-1px);
+    }
+
+    [data-theme="dark"] .hero-cta:hover {
+      background: var(--gray-200);
     }
 
     .hero-cta svg {
@@ -233,14 +311,14 @@
 
     .section-description {
       font-size: 17px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       max-width: 560px;
       margin-bottom: 32px;
       line-height: 1.7;
     }
 
     .bg-gray {
-      background: var(--gray-50);
+      background: var(--bg-secondary);
     }
 
     /* Mentors Grid */
@@ -264,6 +342,10 @@
       object-fit: cover;
     }
 
+    .mentor-photo[alt="Bryan Johnson"] {
+      object-position: center 20%;
+    }
+
     .mentor-card h4 {
       font-size: 17px;
       font-weight: 600;
@@ -278,7 +360,7 @@
 
     .mentor-card p {
       font-size: 14px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
@@ -295,10 +377,11 @@
 
     .pillar-number {
       font-size: 64px;
-      font-weight: 300;
-      color: var(--gray-200);
+      font-weight: 600;
+      color: var(--gray-400);
       line-height: 1;
       margin-bottom: 8px;
+      letter-spacing: -0.03em;
     }
 
     .pillar h3 {
@@ -310,7 +393,7 @@
 
     .pillar p {
       font-size: 15px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
@@ -322,15 +405,15 @@
     }
 
     .value-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 36px;
       transition: border-color 0.2s ease;
     }
 
     .value-card:hover {
-      border-color: var(--gray-300);
+      border-color: var(--text-tertiary);
     }
 
     .value-card .label {
@@ -351,7 +434,7 @@
 
     .value-card p {
       font-size: 15px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
@@ -367,8 +450,8 @@
       align-items: center;
       gap: 14px;
       padding: 18px 20px;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 8px;
       transition: all 0.2s ease;
     }
@@ -406,7 +489,7 @@
     .focus-item h4 {
       font-size: 15px;
       font-weight: 600;
-      color: var(--black);
+      color: var(--text-primary);
     }
 
     /* Audience Grid */
@@ -418,9 +501,9 @@
 
     .audience-card {
       padding: 28px;
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
-      background: var(--white);
+      background: var(--bg-card);
     }
 
     .audience-card h4 {
@@ -442,14 +525,14 @@
 
     .audience-card p {
       font-size: 15px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
     /* Experience Section */
     .experience-intro {
       font-size: 18px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       margin-bottom: 48px;
       font-weight: 500;
     }
@@ -466,7 +549,7 @@
       gap: 28px;
       align-items: start;
       padding-bottom: 32px;
-      border-bottom: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .exp-step:last-child {
@@ -476,9 +559,10 @@
 
     .step-number {
       font-size: 48px;
-      font-weight: 300;
-      color: var(--gray-300);
+      font-weight: 600;
+      color: var(--gray-400);
       line-height: 1;
+      letter-spacing: -0.03em;
     }
 
     .step-content h4 {
@@ -489,15 +573,15 @@
 
     .step-content p {
       font-size: 15px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.7;
       max-width: 600px;
     }
 
     /* Format Box */
     .format-box {
-      background: var(--gray-50);
-      border: 1px solid var(--gray-200);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 40px;
       margin-top: 48px;
@@ -538,7 +622,100 @@
 
     .format-item span {
       font-size: 14px;
-      color: var(--gray-500);
+      color: var(--text-tertiary);
+    }
+
+    /* Track Record */
+    .engine-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .engine-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .engine-header {
+      margin-bottom: 16px;
+    }
+
+    .engine-description {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .logos-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .partner-logo {
+      height: 28px;
+      width: auto;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+      filter: grayscale(100%);
+    }
+
+    [data-theme="dark"] .partner-logo {
+      filter: grayscale(100%) invert(1);
+    }
+
+    .partner-logo:hover {
+      opacity: 1;
+    }
+
+    .partner-logo-50y {
+      height: 32px;
+    }
+
+    .mini-stats-header {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .mini-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .mini-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .mini-number {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .mini-label {
+      font-size: 14px;
+      color: var(--text-tertiary);
     }
 
     /* Stats */
@@ -548,8 +725,8 @@
       gap: 40px;
       text-align: center;
       padding: 48px 0;
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
       margin-top: 32px;
     }
 
@@ -557,14 +734,14 @@
       font-size: 56px;
       font-weight: 600;
       letter-spacing: -0.03em;
-      color: var(--black);
+      color: var(--text-primary);
       line-height: 1;
       margin-bottom: 4px;
     }
 
     .stat-item .label {
       font-size: 14px;
-      color: var(--gray-500);
+      color: var(--text-tertiary);
     }
 
     /* FAQ */
@@ -582,7 +759,7 @@
 
     .faq-item p {
       font-size: 15px;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
@@ -654,9 +831,9 @@
 
     /* Footer */
     footer {
-      background: var(--white);
+      background: var(--bg-primary);
       padding: 40px 48px;
-      border-top: 1px solid var(--gray-200);
+      border-top: 1px solid var(--border-color);
     }
 
     .footer-content {
@@ -669,7 +846,7 @@
 
     .footer-partners {
       font-size: 14px;
-      color: var(--gray-500);
+      color: var(--text-tertiary);
     }
 
     .footer-links {
@@ -678,24 +855,28 @@
     }
 
     .footer-links a {
-      color: var(--gray-500);
+      color: var(--text-tertiary);
       text-decoration: none;
       font-size: 14px;
       transition: color 0.15s ease;
     }
 
     .footer-links a:hover {
-      color: var(--black);
+      color: var(--text-primary);
     }
 
     /* Responsive */
     @media (max-width: 1024px) {
       .pillars-grid,
-      .mentors-grid,
       .format-grid,
       .stats-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+      }
+
+      .mentors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 24px;
       }
 
       .value-grid,
@@ -709,37 +890,197 @@
         grid-template-columns: 56px 1fr;
         gap: 20px;
       }
+
+      .logos-row {
+        gap: 24px;
+      }
+
+      .partner-logo {
+        height: 22px;
+      }
+
+      .partner-logo-50y {
+        height: 26px;
+      }
     }
 
     @media (max-width: 768px) {
       nav {
-        padding: 0 24px;
+        padding: 0 20px;
+        height: 56px;
       }
 
-      .nav-links {
+      .nav-logo span {
+        font-size: 14px;
+      }
+
+      .nav-links a:not(.nav-cta):not(.theme-toggle) {
         display: none;
       }
 
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-cta {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+
       section {
-        padding: 72px 24px;
+        padding: 56px 20px;
       }
 
       .hero {
-        padding: 100px 24px 72px;
+        padding: 90px 20px 56px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-description {
+        font-size: 17px;
+      }
+
+      .hero-cta {
+        padding: 14px 24px;
+        font-size: 15px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .mentors-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .mentor-photo {
+        width: 72px;
+        height: 72px;
+      }
+
+      .pillars-grid {
+        gap: 24px;
+      }
+
+      .pillar-number {
+        font-size: 48px;
+      }
+
+      .value-card {
+        padding: 28px;
+      }
+
+      .focus-grid {
+        gap: 12px;
+      }
+
+      .audience-grid {
+        gap: 16px;
+      }
+
+      .exp-step {
+        grid-template-columns: 48px 1fr;
+        gap: 16px;
+      }
+
+      .step-number {
+        font-size: 36px;
+      }
+
+      .format-box {
+        padding: 24px;
+      }
+
+      .format-grid {
+        gap: 20px;
+      }
+
+      .engine-block {
+        padding: 24px;
+      }
+
+      .engine-description {
+        font-size: 15px;
+      }
+
+      .mini-stats {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .mini-stat {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+
+      .mini-number {
+        font-size: 28px;
       }
 
       .cta-section {
-        padding: 72px 24px;
+        padding: 56px 20px;
+      }
+
+      .cta-box {
+        padding: 28px;
+      }
+
+      .cta-box h3 {
+        font-size: 24px;
+      }
+
+      .faq-grid {
+        gap: 20px;
       }
 
       footer {
-        padding: 32px 24px;
+        padding: 28px 20px;
       }
 
       .footer-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
         text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .theme-toggle {
+        padding: 6px;
+      }
+
+      .theme-toggle svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .logos-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .cta-section .section-title {
+        font-size: 22px;
       }
     }
 
@@ -772,6 +1113,10 @@
       <a href="#experience">Experience</a>
       <a href="#faq">FAQ</a>
       <a href="#apply" class="nav-cta">Apply now</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
     </div>
   </nav>
 
@@ -792,6 +1137,29 @@
       </a>
     </section>
   </div>
+
+  <!-- Three Pillars -->
+  <section>
+    <div class="container">
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-number">1</div>
+          <h3>Learn what it takes to become a great founder</h3>
+          <p>Develop the traits needed to lead a civilization-defining company.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">2</div>
+          <h3>Choose the right idea, team, and market</h3>
+          <p>Identify the gaps in AI resilience that can become indispensable infrastructure.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">3</div>
+          <h3>Build the resilience layer for AI</h3>
+          <p>Execute the playbook for turning core technology into an enduring organization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Mentors Section -->
   <section class="bg-gray" id="mentors">
@@ -851,29 +1219,6 @@
           <h4>Boaz Barak</h4>
           <div class="role">Harvard Prof & OpenAI</div>
           <p>Professor of CS at Harvard. At OpenAI, he works on AI alignment and safety. Research interests include AI safety, foundations of ML, and theoretical CS.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Three Pillars -->
-  <section>
-    <div class="container">
-      <div class="pillars-grid">
-        <div class="pillar">
-          <div class="pillar-number">1</div>
-          <h3>Learn what it takes to become a great founder</h3>
-          <p>Develop the traits needed to lead a civilization-defining company.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-number">2</div>
-          <h3>Choose the right idea, team, and market</h3>
-          <p>Identify the gaps in AI resilience that can become indispensable infrastructure.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-number">3</div>
-          <h3>Build the resilience layer for AI</h3>
-          <p>Execute the playbook for turning core technology into an enduring organization.</p>
         </div>
       </div>
     </div>
@@ -1096,19 +1441,38 @@
   <section class="bg-gray">
     <div class="container">
       <h2 class="section-title">Built on a proven engine</h2>
-      <p class="section-description">At Fifty Years, we've backed over 100 deep tech companies and helped them raise over $4.6 billion. Helping scientists and engineers become great founders is our jam.</p>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="number">340</div>
-          <div class="label">Scientists and engineers trained</div>
+      
+      <!-- Frontier Labs Row -->
+      <div class="engine-block">
+        <div class="engine-label">Frontier expertise</div>
+        <p class="engine-description">Nowhere else do you get this level of proximity to what's happening at the frontier safety teams. Get mentorship directly from researchers and leaders shaping the future of AI.</p>
+        <div class="logos-row">
+          <img src="openai-logo.png" alt="OpenAI" class="partner-logo">
+          <img src="anthropic-logo.png" alt="Anthropic" class="partner-logo">
+          <img src="deepmind-logo.png" alt="DeepMind" class="partner-logo">
         </div>
-        <div class="stat-item">
-          <div class="number">78</div>
-          <div class="label">Companies started</div>
+      </div>
+
+      <!-- Fifty Years Row -->
+      <div class="engine-block">
+        <div class="engine-label">Company building playbook</div>
+        <div class="engine-header">
+          <img src="fiftyyears-logo.png" alt="Fifty Years" class="partner-logo partner-logo-50y">
         </div>
-        <div class="stat-item">
-          <div class="number">95%</div>
-          <div class="label">Seed success rate for those who decide to raise</div>
+        <p class="engine-description">We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise over $4.6 billion. Our founder training program has produced:</p>
+        <div class="mini-stats">
+          <div class="mini-stat">
+            <span class="mini-number">340</span>
+            <span class="mini-label">scientists and engineers trained</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-number">78</span>
+            <span class="mini-label">companies started</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-number">95%</span>
+            <span class="mini-label">seed raise success rate</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1178,6 +1542,23 @@
     </div>
   </footer>
 
+  <!-- Theme Toggle Script -->
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Check for saved theme preference or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+
   <!-- Fluid gradient script -->
   <script>
     const canvas = document.getElementById('gradient-canvas');
@@ -1218,8 +1599,11 @@
       const w = canvas.width;
       const h = canvas.height;
       
-      // Clear with white
-      ctx.fillStyle = '#ffffff';
+      // Check if dark mode
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      
+      // Clear with background color
+      ctx.fillStyle = isDark ? '#0a0a0a' : '#ffffff';
       ctx.fillRect(0, 0, w, h);
       
       const centerX = mouseX * w;
@@ -1234,10 +1618,18 @@
         centerY,
         w * 0.5
       );
-      grad1.addColorStop(0, 'rgba(56, 152, 184, 0.27)');
-      grad1.addColorStop(0.3, 'rgba(59, 130, 246, 0.20)');
-      grad1.addColorStop(0.6, 'rgba(99, 102, 241, 0.10)');
-      grad1.addColorStop(1, 'transparent');
+      
+      if (isDark) {
+        grad1.addColorStop(0, 'rgba(56, 152, 184, 0.35)');
+        grad1.addColorStop(0.3, 'rgba(59, 130, 246, 0.25)');
+        grad1.addColorStop(0.6, 'rgba(99, 102, 241, 0.15)');
+        grad1.addColorStop(1, 'transparent');
+      } else {
+        grad1.addColorStop(0, 'rgba(56, 152, 184, 0.27)');
+        grad1.addColorStop(0.3, 'rgba(59, 130, 246, 0.20)');
+        grad1.addColorStop(0.6, 'rgba(99, 102, 241, 0.10)');
+        grad1.addColorStop(1, 'transparent');
+      }
       
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, w, h);
