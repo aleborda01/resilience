@@ -626,46 +626,19 @@
     }
 
     /* Track Record */
-    .engine-block {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 32px;
-      margin-bottom: 20px;
-    }
-
-    .engine-label {
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .engine-header {
-      margin-bottom: 16px;
-    }
-
-    .engine-description {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 24px;
-      max-width: 700px;
-    }
-
-    .logos-row {
+    .partners-row {
       display: flex;
       align-items: center;
-      gap: 40px;
+      justify-content: center;
+      gap: 48px;
+      margin-bottom: 40px;
       flex-wrap: wrap;
     }
 
     .partner-logo {
-      height: 28px;
+      height: 24px;
       width: auto;
-      opacity: 0.7;
+      opacity: 0.6;
       transition: opacity 0.2s ease;
       filter: grayscale(100%);
     }
@@ -678,8 +651,48 @@
       opacity: 1;
     }
 
-    .partner-logo-50y {
-      height: 32px;
+    /* Individual logo size adjustments for visual balance */
+    .logo-openai {
+      height: 26px;
+    }
+
+    .logo-anthropic {
+      height: 18px;
+    }
+
+    .logo-deepmind {
+      height: 24px;
+    }
+
+    .logo-fiftyyears {
+      height: 28px;
+    }
+
+    .engine-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .engine-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .engine-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .engine-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
     }
 
     .mini-stats-header {
@@ -693,10 +706,10 @@
 
     .mini-stats {
       display: flex;
-      gap: 32px;
+      gap: 24px;
       flex-wrap: wrap;
       padding-top: 20px;
-      margin-top: 20px;
+      margin-top: 16px;
       border-top: 1px solid var(--border-color);
     }
 
@@ -999,12 +1012,13 @@
         gap: 20px;
       }
 
-      .engine-block {
+      .engine-card {
         padding: 24px;
       }
 
-      .engine-description {
-        font-size: 15px;
+      .partners-row {
+        gap: 32px;
+        margin-bottom: 32px;
       }
 
       .mini-stats {
@@ -1073,10 +1087,24 @@
         font-size: 24px;
       }
 
-      .logos-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+      .partners-row {
+        gap: 24px;
+      }
+
+      .logo-openai {
+        height: 22px;
+      }
+
+      .logo-anthropic {
+        height: 14px;
+      }
+
+      .logo-deepmind {
+        height: 20px;
+      }
+
+      .logo-fiftyyears {
+        height: 24px;
       }
 
       .cta-section .section-title {
@@ -1442,24 +1470,24 @@
     <div class="container">
       <h2 class="section-title">Built on a proven engine</h2>
       
-      <!-- Frontier Labs Row -->
-      <div class="engine-block">
-        <div class="engine-label">Frontier expertise</div>
-        <p class="engine-description">Nowhere else do you get this level of proximity to what's happening at the frontier safety teams. Get mentorship directly from researchers and leaders shaping the future of AI.</p>
-        <div class="logos-row">
-          <img src="openai-logo.png" alt="OpenAI" class="partner-logo">
-          <img src="anthropic-logo.png" alt="Anthropic" class="partner-logo">
-          <img src="deepmind-logo.png" alt="DeepMind" class="partner-logo">
-        </div>
+      <!-- Unified Partner Logos -->
+      <div class="partners-row">
+        <img src="openai-logo.png" alt="OpenAI" class="partner-logo logo-openai">
+        <img src="anthropic-logo.png" alt="Anthropic" class="partner-logo logo-anthropic">
+        <img src="deepmind-logo.png" alt="DeepMind" class="partner-logo logo-deepmind">
+        <img src="fiftyyears-logo.png" alt="Fifty Years" class="partner-logo logo-fiftyyears">
       </div>
 
-      <!-- Fifty Years Row -->
-      <div class="engine-block">
+      <!-- Frontier expertise -->
+      <div class="engine-card">
+        <div class="engine-label">Frontier expertise</div>
+        <p>Nowhere else do you get this level of proximity to what's happening at the frontier safety teams. Get mentorship directly from researchers and leaders shaping the future of AI.</p>
+      </div>
+
+      <!-- Company building -->
+      <div class="engine-card">
         <div class="engine-label">Company building playbook</div>
-        <div class="engine-header">
-          <img src="fiftyyears-logo.png" alt="Fifty Years" class="partner-logo partner-logo-50y">
-        </div>
-        <p class="engine-description">We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise over $4.6 billion. Our founder training program has produced:</p>
+        <p>We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise over $4.6 billion. Our founder training program has produced:</p>
         <div class="mini-stats">
           <div class="mini-stat">
             <span class="mini-number">340</span>
