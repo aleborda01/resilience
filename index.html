@@ -46,6 +46,10 @@
       box-sizing: border-box;
     }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     html {
       scroll-behavior: smooth;
       font-family: var(--font-sans);
@@ -60,6 +64,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       transition: background 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4 {
@@ -284,11 +289,10 @@
     }
 
     .container {
-      max-width: 1004px;
+      max-width: 1100px;
       margin: 0 auto;
       width: 100%;
       padding: 0 48px;
-      box-sizing: content-box;
     }
 
     .narrow-content {
@@ -331,6 +335,7 @@
 
     .mentor-card {
       text-align: left;
+      max-width: 100%;
     }
 
     .mentor-photo {
@@ -363,6 +368,8 @@
       font-size: 14px;
       color: var(--black);
       line-height: 1.6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     /* Three Pillars with Gradient Cards */
@@ -370,6 +377,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      max-width: 100%;
     }
 
     .pillar-box {
@@ -477,6 +485,8 @@
       color: white;
       line-height: 1.3;
       margin: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     /* Value Props */
@@ -673,6 +683,12 @@
     /* Content Block - left aligned text */
     .content-block {
       max-width: 680px;
+    }
+
+    .content-block.subsection {
+      padding-top: 32px;
+      margin-top: 32px;
+      border-top: 1px solid var(--gray-200);
     }
 
     .content-block p {
@@ -1184,7 +1200,8 @@
       }
 
       .two-boxes {
-        gap: 16px;
+        gap: 24px;
+        margin-top: 32px;
       }
 
       .callout-box {
@@ -1195,17 +1212,37 @@
       .info-box {
         flex-direction: column;
         align-items: flex-start;
+        gap: 16px;
+        background: var(--gray-50);
+        padding: 24px;
+        border-radius: 16px;
       }
 
       .info-box-gradient {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
+      }
+
+      .info-box h4 {
+        font-size: 1.125rem;
+      }
+
+      .info-box p {
+        font-size: 0.875rem;
       }
 
       .partners-row {
-        gap: 32px;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: start;
+        gap: 24px 32px;
         margin-top: 32px;
       }
+
+      .logo-openai { height: 28px; }
+      .logo-anthropic { height: 14px; }
+      .logo-deepmind { height: 26px; }
+      .logo-fiftyyears { height: 30px; }
 
       .mini-stats-inline {
         display: flex;
@@ -1247,7 +1284,7 @@
       }
 
       .subheading {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
     }
 
@@ -1260,14 +1297,18 @@
         font-size: 1.5rem;
       }
 
-      .partners-row {
-        gap: 24px;
+      .subheading {
+        font-size: 1.125rem;
       }
 
-      .logo-openai { height: 22px; }
-      .logo-anthropic { height: 14px; }
-      .logo-deepmind { height: 20px; }
-      .logo-fiftyyears { height: 24px; }
+      .partners-row {
+        gap: 20px 24px;
+      }
+
+      .logo-openai { height: 24px; }
+      .logo-anthropic { height: 12px; }
+      .logo-deepmind { height: 22px; }
+      .logo-fiftyyears { height: 26px; }
     }
 
     @keyframes fadeIn {
@@ -1534,12 +1575,12 @@
         
         <p class="section-intro">The OpenAI Foundation exists to ensure that artificial general intelligence benefits all of humanity. Fifty Years brings the founder engine to help build the organizations needed for that mission.</p>
         
-        <div class="content-block" style="margin-top: 40px;">
+        <div class="content-block subsection">
           <h3 class="subheading">Frontier expertise</h3>
           <p>No single organization can solve AI resilience alone. Get direct exposure to the work happening inside frontier safety teams. Learn from researchers and leaders shaping how advanced AI is deployed.</p>
         </div>
 
-        <div class="content-block" style="margin-top: 40px;">
+        <div class="content-block subsection">
           <h3 class="subheading">Company building playbook</h3>
           <p>We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise over $4.6 billion. Our founder training program has produced:</p>
           <div class="mini-stats-inline">
@@ -1574,7 +1615,7 @@
             <span>5-8 hours/week</span>
           </div>
           <div class="details-row">
-            <span>Weekly workshops, technical mentor sessions & office hours</span>
+            <span>Weekly workshops, mentor sessions & office hours</span>
           </div>
           <div class="details-row">
             <span>Kickoff weekend in San Francisco</span>
