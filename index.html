@@ -206,7 +206,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 140px 48px 100px;
+      padding: 160px 48px 100px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -222,12 +222,12 @@
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 4.5rem;
       font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       margin-bottom: 24px;
-      max-width: 800px;
+      max-width: 900px;
     }
 
     .hero-description {
@@ -377,7 +377,7 @@
       border-radius: 16px;
       position: relative;
       overflow: hidden;
-      min-height: 200px;
+      min-height: 220px;
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
@@ -428,36 +428,48 @@
     }
 
     .pillar-1 {
-      background: linear-gradient(135deg, #8fb8a8 0%, #8ec4b8 25%, #8accc8 50%, #7fcfda 75%, #6cc4db 100%);
+      background: linear-gradient(135deg, #749687 0%, #77a294 25%, #74aaa0 50%, #69aaad 75%, #5ea0ab 100%);
     }
 
     .pillar-2 {
-      background: linear-gradient(150deg, #8ec4b8 0%, #8accc8 30%, #7fcfda 60%, #6cc4db 100%);
+      background: linear-gradient(150deg, #77a294 0%, #74aaa0 30%, #69aaad 60%, #5ea0ab 100%);
     }
 
     .pillar-3 {
-      background: linear-gradient(135deg, #7fcfda 0%, #6cc4db 25%, #8accc8 50%, #8ec4b8 75%, #8fb8a8 100%);
+      background: linear-gradient(135deg, #69aaad 0%, #5ea0ab 25%, #74aaa0 50%, #77a294 75%, #749687 100%);
     }
 
     .pillar-content {
       position: relative;
       z-index: 10;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+
+    .pillar-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: auto;
+    }
+
+    .pillar-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: rgba(255,255,255,0.9);
+    }
+
+    .pillar-text {
+      margin-top: auto;
     }
 
     .pillar-box h3 {
-      font-size: 1.5rem;
+      font-size: 1.375rem;
       font-weight: 600;
-      margin-bottom: 12px;
       letter-spacing: -0.01em;
       color: white;
       line-height: 1.3;
-    }
-
-    .pillar-content p {
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.85);
       margin: 0;
     }
 
@@ -1104,7 +1116,7 @@
       }
 
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
       .hero-description {
@@ -1148,7 +1160,7 @@
 
       .pillar-box {
         padding: 24px;
-        min-height: 140px;
+        min-height: 160px;
       }
 
       .mentors-grid {
@@ -1226,7 +1238,7 @@
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
       }
 
       .section-title {
@@ -1304,22 +1316,34 @@
         <div class="pillar-box pillar-1">
           <div class="grain-extra"></div>
           <div class="pillar-content">
-            <h3>Learn what it takes to become a great founder</h3>
-            <p>Develop the traits needed to lead an ambitious, mission-aligned organization.</p>
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="pillar-text">
+              <h3>Learn what it takes to become a great founder</h3>
+            </div>
           </div>
         </div>
         <div class="pillar-box pillar-2">
           <div class="grain-extra"></div>
           <div class="pillar-content">
-            <h3>Choose the right idea, team, and market</h3>
-            <p>Identify gaps in AI resilience that can become indispensable infrastructure.</p>
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            </div>
+            <div class="pillar-text">
+              <h3>Choose the right idea, team, and market</h3>
+            </div>
           </div>
         </div>
         <div class="pillar-box pillar-3">
           <div class="grain-extra"></div>
           <div class="pillar-content">
-            <h3>Build the resilience layer for AI</h3>
-            <p>Turn core technology into an organization that can endure.</p>
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="pillar-text">
+              <h3>Build the resilience layer for AI</h3>
+            </div>
           </div>
         </div>
       </div>
