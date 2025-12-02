@@ -201,7 +201,7 @@
 
     .hero-description {
       font-size: 1rem;
-      color: var(--gray-600);
+      color: var(--black);
       max-width: 600px;
       margin-bottom: 32px;
       line-height: 1.6;
@@ -279,7 +279,7 @@
 
     .section-description {
       font-size: 1.125rem;
-      color: var(--gray-600);
+      color: var(--black);
       max-width: 640px;
       margin-bottom: 40px;
       line-height: 1.6;
@@ -423,7 +423,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-top: 48px;
       height: 100%;
       width: 100%;
     }
@@ -482,7 +483,7 @@
 
     .section-subtitle {
       font-size: 1.125rem;
-      color: var(--gray-600);
+      color: var(--black);
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
@@ -732,7 +733,7 @@
     .program-description {
       font-size: 1.0625rem;
       line-height: 1.7;
-      color: var(--gray-700);
+      color: var(--black);
     }
 
     /* Behind This Section */
@@ -953,7 +954,7 @@
 
     .info-box p {
       font-size: 0.9375rem;
-      color: var(--gray-600);
+      color: var(--black);
       line-height: 1.6;
     }
 
@@ -1104,7 +1105,7 @@
 
     .cta-subheadline {
       font-size: 1.25rem;
-      color: var(--gray-600);
+      color: var(--black);
       max-width: 600px;
       margin: 0 auto 32px;
       line-height: 1.4;
@@ -1338,6 +1339,10 @@
         min-height: 160px;
       }
 
+      .pillar-content {
+        padding-top: 36px;
+      }
+
       .mentors-grid {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -1462,6 +1467,11 @@
       .subheading {
         font-size: 1.25rem;
       }
+
+      .section-subtitle {
+        font-size: 1rem;
+        max-width: 100% !important;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1475,6 +1485,10 @@
 
       .subheading {
         font-size: 1.125rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.9375rem;
       }
 
       .partners-row {
@@ -1645,7 +1659,7 @@
   <section class="value-section">
     <div class="container centered-header">
       <h2 class="section-title">For ambitious builders</h2>
-      <p class="section-subtitle">We help researchers, scientists, and engineers become great founders.</p>
+      <p class="section-subtitle">You bring the mission. We help you grow into a great founder.</p>
       
       <div class="value-cards">
         <div class="value-card">
@@ -1679,10 +1693,12 @@
   <!-- What the World Needs -->
   <section>
     <div class="container">
+      <div class="centered-header" style="margin-bottom: 32px;">
+        <h2 class="section-title" style="text-align: center;">What the world needs</h2>
+        <p class="section-subtitle" style="text-align: center; max-width: none;">Areas where new organizations can maximize AI's benefits and minimize its risks.</p>
+      </div>
       <div class="gradient-section">
         <div class="gradient-section-content">
-          <h2 class="section-title" style="text-align: center;">What the world needs</h2>
-          <p class="section-subtitle" style="text-align: center; margin-bottom: 32px;">Critical areas where new organizations can help maximize AI's benefits and minimize its risks.</p>
           <div class="focus-tags">
             <span class="focus-tag">Weight & infrastructure security</span>
             <span class="focus-tag">Behavioral safety</span>
@@ -1694,6 +1710,7 @@
             <span class="focus-tag">Mental health and AI-mediated harms</span>
             <span class="focus-tag">Biosecurity & countermeasures</span>
             <span class="focus-tag">AI-powered cybersecurity</span>
+            <span class="focus-tag">Global cooperation</span>
           </div>
         </div>
       </div>
@@ -1752,7 +1769,7 @@
         <div class="content-block" style="margin-top: 24px;">
           <ul class="bullet-list">
             <li>You're working to ensure AI benefits everyone through safety and alignment systems, governance, scientific discovery, or global cooperation</li>
-            <li>You're a scientist, engineer, or builder ready to translate your work into practical solutions at scale</li>
+            <li>You're a scientist or engineer ready to translate your work into practical solutions at scale</li>
             <li>You're committed to ensuring AI benefits all of humanity</li>
           </ul>
         </div>
@@ -1876,7 +1893,7 @@
               <h4>What's the time commitment?</h4>
               <span class="faq-toggle">+</span>
             </div>
-            <div class="faq-answer">5-8 hours per week for sessions and office hours. You can participate while doing your PhD, postdoc, or full-time job. The program runs for 14 weeks.</div>
+            <div class="faq-answer">5–8 hours per week for sessions and office hours. You can participate while doing your PhD, postdoc, or full-time job. The program runs for 14 weeks.</div>
           </div>
           <div class="faq-item">
             <div class="faq-question">
