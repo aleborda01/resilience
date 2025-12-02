@@ -115,42 +115,6 @@
       color: var(--text-primary);
     }
 
-    /* Theme Toggle */
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--border-color);
-      border-radius: 100px;
-      padding: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: all 0.2s ease;
-    }
-
-    .theme-toggle:hover {
-      border-color: var(--text-tertiary);
-      color: var(--text-primary);
-    }
-
-    .theme-toggle svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .theme-toggle .sun-icon {
-      display: none;
-    }
-
-    [data-theme="dark"] .theme-toggle .moon-icon {
-      display: none;
-    }
-
-    [data-theme="dark"] .theme-toggle .sun-icon {
-      display: block;
-    }
-
     .nav-logo span {
       font-weight: 400;
       font-size: 18px;
@@ -442,15 +406,15 @@
     }
 
     .pillar-1 {
-      background: linear-gradient(135deg, #749687 0%, #77a294 25%, #74aaa0 50%, #69aaad 75%, #5ea0ab 100%);
+      background: linear-gradient(135deg, #e8c84a 0%, #d4d465 30%, #a8dda0 50%, #7dd8c8 70%, #7dcfdb 100%);
     }
 
     .pillar-2 {
-      background: linear-gradient(150deg, #77a294 0%, #74aaa0 30%, #69aaad 60%, #5ea0ab 100%);
+      background: linear-gradient(145deg, #e2be48 0%, #d9c455 25%, #d4c85a 50%, #d0c960 75%, #ccc85e 100%);
     }
 
     .pillar-3 {
-      background: linear-gradient(135deg, #69aaad 0%, #5ea0ab 25%, #74aaa0 50%, #77a294 75%, #749687 100%);
+      background: linear-gradient(135deg, #dcc450 0%, #c8d068 25%, #9ad9a8 45%, #70d8cc 65%, #65cfe0 85%, #5cc8e5 100%);
     }
 
     .pillar-content {
@@ -458,6 +422,8 @@
       z-index: 10;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       height: 100%;
       width: 100%;
     }
@@ -465,7 +431,9 @@
     .pillar-icon {
       width: 32px;
       height: 32px;
-      margin-bottom: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .pillar-icon svg {
@@ -475,16 +443,21 @@
     }
 
     .pillar-text {
-      margin-top: auto;
+      text-align: center;
     }
 
     .pillar-box h3 {
-      font-size: 1.375rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: white;
-      line-height: 1.3;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: var(--gray-900);
+      line-height: 1.4;
       margin: 0;
+      background: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       word-wrap: break-word;
       overflow-wrap: break-word;
     }
@@ -656,6 +629,162 @@
       text-align: center;
     }
 
+    /* Gradient Section */
+    .gradient-section {
+      position: relative;
+      border-radius: 24px;
+      padding: 52px 40px;
+      text-align: center;
+      overflow: hidden;
+      background: 
+        radial-gradient(ellipse 70% 60% at 20% 30%, rgba(135, 206, 250, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 50% at 80% 70%, rgba(30, 144, 220, 0.5) 0%, transparent 50%),
+        linear-gradient(150deg, #4db8e8 0%, #3aabde 25%, #2a9ed4 50%, #1a91ca 75%, #0a84c0 100%);
+    }
+
+    .gradient-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: overlay;
+    }
+
+    .gradient-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise2)'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 2;
+      mix-blend-mode: soft-light;
+    }
+
+    .gradient-section-content {
+      position: relative;
+      z-index: 10;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .gradient-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .gradient-section-icon {
+      width: 52px;
+      height: 52px;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .gradient-section-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--gray-800);
+      stroke-width: 1.5;
+    }
+
+    .gradient-section .section-title {
+      color: white;
+      font-size: 1.625rem;
+    }
+
+    /* Program Format Section */
+    .program-format-section {
+      padding: 70px 0;
+    }
+
+    .program-format-section .section-title {
+      margin-bottom: 16px;
+    }
+
+    .program-meta {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .program-meta span {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      padding: 6px 14px;
+      background: var(--gray-100);
+      border-radius: 6px;
+    }
+
+    .program-description {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--gray-700);
+    }
+
+    /* Behind This Section */
+    .behind-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .behind-card {
+      background: var(--gray-50);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: left;
+    }
+
+    .behind-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--gray-900);
+    }
+
+    .behind-card p {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .stat-item {
+      text-align: left;
+    }
+
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+    }
+
     /* Focus Tags */
     .focus-tags {
       display: flex;
@@ -676,8 +805,8 @@
     }
 
     .focus-tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: #3a9fd5;
+      color: #3a9fd5;
     }
 
     /* Content Block - left aligned text */
@@ -755,6 +884,14 @@
 
     .info-box:last-child .info-box-gradient {
       background: linear-gradient(135deg, #8fc9a0 0%, #7accc0 25%, #70c5d0 50%, #6bbfdb 75%, #65b5dc 100%);
+    }
+
+    /* Green-cyan gradient variant matching OpenAI style */
+    .info-box-gradient-green {
+      background: 
+        radial-gradient(ellipse 55% 45% at 35% 75%, rgba(200, 230, 50, 0.85) 0%, rgba(160, 220, 100, 0.5) 35%, transparent 55%),
+        radial-gradient(ellipse 45% 35% at 75% 25%, rgba(70, 180, 230, 0.7) 0%, rgba(90, 190, 230, 0.3) 40%, transparent 55%),
+        linear-gradient(140deg, #60d8d2 0%, #65d5ce 20%, #70d2ca 40%, #78d0c8 60%, #80ccc8 80%, #88c8d0 100%) !important;
     }
 
     /* Grain layer 1 */
@@ -869,7 +1006,7 @@
     .logo-openai { height: 36px; }
     .logo-anthropic { height: 17px; }
     .logo-deepmind { height: 34px; }
-    .logo-fiftyyears { height: 38px; }
+    .logo-fiftyyears { height: 48px; }
 
     /* Experience Section */
     .experience-section .section-title {
@@ -1104,6 +1241,11 @@
       .partner-logo {
         height: 22px;
       }
+
+      .behind-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1214,6 +1356,41 @@
         border-radius: 16px;
       }
 
+      .gradient-section {
+        padding: 40px 20px;
+        border-radius: 16px;
+      }
+
+      .gradient-section-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+      }
+
+      .gradient-section-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .program-meta {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .program-meta span {
+        font-size: 0.875rem;
+        padding: 5px 12px;
+      }
+
+      .stats-row {
+        gap: 20px;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+      }
+
       .info-box {
         flex-direction: column;
         align-items: flex-start;
@@ -1248,7 +1425,7 @@
       .logo-openai { height: 28px; }
       .logo-anthropic { height: 14px; }
       .logo-deepmind { height: 26px; }
-      .logo-fiftyyears { height: 30px; }
+      .logo-fiftyyears { height: 36px; }
 
       .mini-stats-inline {
         display: flex;
@@ -1280,15 +1457,6 @@
         gap: 16px;
       }
 
-      .theme-toggle {
-        padding: 6px;
-      }
-
-      .theme-toggle svg {
-        width: 16px;
-        height: 16px;
-      }
-
       .subheading {
         font-size: 1.25rem;
       }
@@ -1314,7 +1482,7 @@
       .logo-openai { height: 24px; }
       .logo-anthropic { height: 12px; }
       .logo-deepmind { height: 22px; }
-      .logo-fiftyyears { height: 26px; }
+      .logo-fiftyyears { height: 32px; }
     }
 
     @keyframes fadeIn {
@@ -1343,10 +1511,6 @@
       <a href="#" class="nav-logo">
         <span>AI Resilience</span>
       </a>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-      </button>
     </div>
     <div class="nav-right">
       <a href="#apply" class="nav-cta">Apply now</a>
@@ -1415,7 +1579,7 @@
   <!-- Mentors Section -->
   <section id="mentors">
     <div class="container">
-      <h2 class="section-title" style="text-align: center;">Some of our mentors</h2>
+      <h2 class="section-title" style="text-align: center;">Our mentors</h2>
       <div class="mentors-grid">
         <div class="mentor-card">
           <img src="woj.jpeg" alt="Wojciech Zaremba" class="mentor-photo">
@@ -1513,20 +1677,25 @@
   <!-- What the World Needs -->
   <section>
     <div class="container">
-      <div class="callout-box">
-        <h2 class="section-title" style="text-align: center;">What the world needs</h2>
-        <p class="section-subtitle" style="text-align: center; margin-bottom: 32px;">Critical areas where new organizations can help maximize AI's benefits and minimize its risks.</p>
-        <div class="focus-tags">
-          <span class="focus-tag">Weight & infrastructure security</span>
-          <span class="focus-tag">Behavioral safety</span>
-          <span class="focus-tag">Privacy & data-leak prevention</span>
-          <span class="focus-tag">Evals: system-level, agentic, end-to-end</span>
-          <span class="focus-tag">Interpretability platforms</span>
-          <span class="focus-tag">Governance & compliance</span>
-          <span class="focus-tag">Human-AI interfaces</span>
-          <span class="focus-tag">Mental health and AI-mediated harms</span>
-          <span class="focus-tag">Biosecurity & countermeasures</span>
-          <span class="focus-tag">AI-powered cybersecurity</span>
+      <div class="gradient-section">
+        <div class="gradient-section-content">
+          <div class="gradient-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h2 class="section-title" style="text-align: center;">What the world needs</h2>
+          <p class="section-subtitle" style="text-align: center; margin-bottom: 32px;">Critical areas where new organizations can help maximize AI's benefits and minimize its risks.</p>
+          <div class="focus-tags">
+            <span class="focus-tag">Weight & infrastructure security</span>
+            <span class="focus-tag">Behavioral safety</span>
+            <span class="focus-tag">Privacy & data-leak prevention</span>
+            <span class="focus-tag">Evals: system-level, agentic, end-to-end</span>
+            <span class="focus-tag">Interpretability platforms</span>
+            <span class="focus-tag">Governance & compliance</span>
+            <span class="focus-tag">Human-AI interfaces</span>
+            <span class="focus-tag">Mental health and AI-mediated harms</span>
+            <span class="focus-tag">Biosecurity & countermeasures</span>
+            <span class="focus-tag">AI-powered cybersecurity</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1581,20 +1750,28 @@
         
         <p class="section-intro">The OpenAI Foundation exists to ensure that artificial general intelligence benefits all of humanity. In partnership with Fifty Years, we're supporting researchers ready to build the organizations needed to advance AI resilience.</p>
         
-        <div class="content-block subsection">
-          <h3 class="subheading">Frontier expertise</h3>
-          <p>No single organization can solve AI resilience alone. Get direct exposure to the work happening inside frontier safety teams. Learn from researchers and leaders shaping how advanced AI is deployed.</p>
-        </div>
-
-        <div class="content-block subsection">
-          <h3 class="subheading">Company building playbook</h3>
-          <p>We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise over $4.6 billion. Our founder training program has produced:</p>
-          <div class="mini-stats-inline">
-            <span><strong>340</strong> scientists and engineers trained</span>
-            <span class="stat-divider">·</span>
-            <span><strong>78</strong> companies started</span>
-            <span class="stat-divider">·</span>
-            <span><strong>95%</strong> seed raise success rate</span>
+        <div class="two-boxes" style="margin-top: 40px;">
+          <div class="info-box">
+            <div class="info-box-gradient info-box-gradient-green">
+              <div class="info-box-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              </div>
+            </div>
+            <div class="info-box-content">
+              <h4>Frontier expertise</h4>
+              <p>Get direct exposure to the work happening inside frontier safety teams. Learn from researchers and leaders shaping how advanced AI is deployed.</p>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-box-gradient info-box-gradient-green">
+              <div class="info-box-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+            </div>
+            <div class="info-box-content">
+              <h4>Company building playbook</h4>
+              <p>We've been founders ourselves. At Fifty Years, we've backed 135 deep tech companies and helped them raise more than $4.6 billion.<br><br>Our founder training program has supported 340 scientists and engineers, led to 78 new companies, and has a 95% seed raise success rate.</p>
+            </div>
           </div>
         </div>
 
@@ -1610,24 +1787,25 @@
   </section>
 
   <!-- The Experience -->
+  <!-- Program Format -->
+  <section class="program-format-section">
+    <div class="container">
+      <div class="narrow-content">
+        <h2 class="section-title">Program format</h2>
+        <div class="program-meta">
+          <span>14 weeks</span>
+          <span>March – June 2026</span>
+          <span>5–8 hours/week</span>
+        </div>
+        <p class="program-description">We'll fly the entire cohort to San Francisco for the kickoff weekend and a 3-day off-the-grid retreat. After kickoff, every week includes one-on-one guidance from Fifty Years partners, technical mentor sessions, and afternoon workshops focused on essential entrepreneurship skills. Workshops are held in-person in SF and remotely for participants across the US.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="experience" class="experience-section">
     <div class="container">
       <div class="narrow-content">
         <h2 class="section-title">The experience</h2>
-        <div class="experience-details">
-          <div class="details-row">
-            <span>14 weeks</span>
-            <span>March – June 2026</span>
-            <span>5-8 hours/week</span>
-          </div>
-          <div class="details-row">
-            <span>Weekly workshops, mentor sessions & office hours</span>
-          </div>
-          <div class="details-row">
-            <span>Kickoff weekend in San Francisco</span>
-            <span>3-day off-the-grid retreat</span>
-          </div>
-        </div>
         
         <div class="experience-accordion">
           <div class="exp-item">
@@ -1749,33 +1927,17 @@
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    }
-
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    if (savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  </script>
-
   <!-- Fluid gradient script -->
   <script>
     const canvas = document.getElementById('gradient-canvas');
     const ctx = canvas.getContext('2d');
     const heroWrapper = document.querySelector('.hero-wrapper');
     
-    let mouseX = 0.3;
+    let mouseX = 0.5;
     let mouseY = 0.5;
-    let targetX = 0.3;
+    let targetX = 0.5;
     let targetY = 0.5;
+    let isHovering = false;
     
     function resize() {
       canvas.width = heroWrapper.offsetWidth * window.devicePixelRatio;
@@ -1791,55 +1953,49 @@
       const rect = heroWrapper.getBoundingClientRect();
       targetX = (e.clientX - rect.left) / rect.width;
       targetY = (e.clientY - rect.top) / rect.height;
+      isHovering = true;
     });
     
     heroWrapper.addEventListener('mouseleave', () => {
-      targetX = 0.3;
-      targetY = 0.5;
+      isHovering = false;
     });
     
+    let currentOpacity = 0;
+    
     function draw() {
-      // Smooth mouse follow
-      mouseX += (targetX - mouseX) * 0.05;
-      mouseY += (targetY - mouseY) * 0.05;
+      mouseX += (targetX - mouseX) * 0.1;
+      mouseY += (targetY - mouseY) * 0.1;
+      
+      const targetOpacity = isHovering ? 1 : 0;
+      currentOpacity += (targetOpacity - currentOpacity) * 0.06;
       
       const w = canvas.width;
       const h = canvas.height;
       
-      // Check if dark mode
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      
-      // Clear with background color
-      ctx.fillStyle = isDark ? '#0a0a0a' : '#ffffff';
+      ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, w, h);
       
-      const centerX = mouseX * w;
-      const centerY = mouseY * h;
-      
-      // Single clean gradient - soft teal-blue blend
-      const grad1 = ctx.createRadialGradient(
-        centerX,
-        centerY,
-        0,
-        centerX,
-        centerY,
-        w * 1.2
-      );
-      
-      if (isDark) {
-        grad1.addColorStop(0, 'rgba(143, 184, 168, 0.45)');
-        grad1.addColorStop(0.2, 'rgba(142, 196, 184, 0.30)');
-        grad1.addColorStop(0.5, 'rgba(138, 180, 170, 0.15)');
-        grad1.addColorStop(1, 'transparent');
-      } else {
-        grad1.addColorStop(0, 'rgba(143, 184, 168, 0.35)');
-        grad1.addColorStop(0.2, 'rgba(142, 196, 184, 0.22)');
-        grad1.addColorStop(0.5, 'rgba(138, 180, 170, 0.10)');
-        grad1.addColorStop(1, 'transparent');
+      if (currentOpacity > 0.01) {
+        const centerX = mouseX * w;
+        const centerY = mouseY * h;
+        
+        const glow = ctx.createRadialGradient(
+          centerX, centerY, 0,
+          centerX, centerY, w * 0.9
+        );
+        
+        // Smooth gaussian-like falloff with many stops
+        const maxOpacity = 0.5 * currentOpacity;
+        for (let i = 0; i <= 20; i++) {
+          const t = i / 20;
+          // Gaussian falloff: e^(-x^2)
+          const opacity = maxOpacity * Math.exp(-4 * t * t);
+          glow.addColorStop(t, `rgba(97, 168, 147, ${opacity})`);
+        }
+        
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, w, h);
       }
-      
-      ctx.fillStyle = grad1;
-      ctx.fillRect(0, 0, w, h);
       
       requestAnimationFrame(draw);
     }
